@@ -40,6 +40,11 @@
       cursor: pointer;
     }
 
+    button:disabled {
+      background: gray;
+      cursor: not-allowed;
+    }
+
     .message {
       display: none;
       padding: 12px;
@@ -66,12 +71,24 @@
     <input type="text" name="village" placeholder="کلی" required>
     <textarea name="message" placeholder="د مرستې وضاحت" required></textarea>
 
-    <button type="submit">لېږل</button>
+    <button type="submit" id="sendBtn">لېږل</button>
   </form>
 
   <div id="msg" class="message">
     ستا معلومات ثبت شول، مننه 🌻
   </div>
+
+  <script>
+    const form = document.querySelector("form");
+    const btn = document.getElementById("sendBtn");
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", function () {
+      btn.disabled = true;
+      btn.innerText = "لېږل شول";
+      msg.style.display = "block";
+    });
+  </script>
 
 </body>
 </html>
