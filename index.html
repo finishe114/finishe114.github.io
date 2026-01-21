@@ -5,49 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>د مرستې فورم</title>
 
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 15px;
-      background: #f5f5f5;
-    }
-
-    img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    input, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      font-size: 16px;
-    }
-
-    button {
-      background: green;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-
-    .message {
-      display: none;
-      padding: 12px;
-      margin-top: 10px;
-      background: #d4edda;
-      color: #155724;
-      border-radius: 5px;
-      text-align: center;
-    }
-  </style>
+  <!-- د بهرني CSS فایل لینک -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <h2>د مرستې فورم</h2>
 
-  <img src="test.jpg">
+  <img src="test.jpg" alt="عکس">
 
   <!-- FormSubmit -->
   <form
@@ -77,8 +43,8 @@
       const msg = document.getElementById("msg");
       msg.style.display = "block";
 
-      form.submit();   // 👈 ایمېل ته لېږل
-      form.reset();    // 👈 فورم پاکول
+      form.submit();
+      form.reset();
 
       setTimeout(function () {
         msg.style.display = "none";
