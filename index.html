@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>د مرستې فورم</title>
+  <title>د مرستې لاس</title>
 
   <style>
     body {
@@ -25,6 +25,12 @@
       text-align: center;
     }
 
+    p {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+    }
+
     img {
       width: 150px;
       height: 150px;
@@ -34,7 +40,7 @@
       margin: 0 auto 15px;
     }
 
-    input, textarea, button {
+    input, textarea, select, button {
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
@@ -48,13 +54,6 @@
       border-radius: 6px;
     }
 
-    .privacy {
-      font-size: 14px;
-      color: #555;
-      text-align: center;
-      margin-top: 10px;
-    }
-
     .message {
       display: none;
       padding: 12px;
@@ -64,6 +63,13 @@
       border-radius: 6px;
       text-align: center;
     }
+
+    .privacy {
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+      margin-top: 10px;
+    }
   </style>
 </head>
 
@@ -71,7 +77,8 @@
 
 <div class="card">
 
-  <h2>د مرستې فورم</h2>
+  <h2>د مرستې لاس</h2>
+  <p>موږ هڅه کوو چې مرستې سم ځای ته ورسوو</p>
 
   <img src="test.jpg">
 
@@ -80,18 +87,34 @@
     method="POST"
     onsubmit="showMessage(event, this)"
   >
-    <input type="hidden" name="_subject" value="نوی د مرستې پیغام">
-    <input type="hidden" name="_captcha" value="false">
 
+    <!-- امنیت -->
+    <input type="hidden" name="_subject" value="نوی د مرستې پیغام">
+    <input type="hidden" name="_template" value="table">
+
+    <!-- د روبوټ لپاره پټ خانہ -->
+    <input type="text" name="_honey" style="display:none">
+
+    <!-- اصلي معلومات -->
     <input type="text" name="name" placeholder="نوم" required>
     <input type="text" name="village" placeholder="کلی" required>
+
+    <select name="help_type" required>
+      <option value="">د مرستې ډول وټاکئ</option>
+      <option value="خوراک">خوراک</option>
+      <option value="درملنه">درملنه</option>
+      <option value="تعلیم">تعلیم</option>
+      <option value="نور">نور</option>
+    </select>
+
     <textarea name="message" placeholder="د مرستې وضاحت" required></textarea>
 
     <button type="submit">لېږل</button>
   </form>
 
   <div id="msg" class="message">
-    ستا معلومات ثبت شول، مننه 🌻
+    ستا پیغام ترلاسه شو 🌻  
+    که اړتیا وي، موږ به له تا سره اړیکه ونیسو
   </div>
 
   <div class="privacy">
@@ -107,7 +130,9 @@
     msg.style.display = "block";
     form.submit();
     form.reset();
-    setTimeout(() => msg.style.display = "none", 3000);
+    setTimeout(() => {
+      msg.style.display = "none";
+    }, 3000);
   }
 </script>
 
