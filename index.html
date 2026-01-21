@@ -3,55 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>د مرستې لاس</title>
+  <title>د مرستې فورم</title>
 
   <style>
     body {
       font-family: sans-serif;
+      padding: 15px;
       background: #f5f5f5;
-      padding: 20px;
-    }
-
-    .card {
-      max-width: 420px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 14px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
     }
 
     h2 {
       text-align: center;
     }
 
-    p {
-      text-align: center;
-      font-size: 14px;
-      color: #555;
+    .image-box {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
     }
 
-    img {
-      width: 150px;
-      height: 150px;
+    .image-box img {
+      width: 180px;
+      height: 180px;
       object-fit: cover;
       border-radius: 50%;
-      display: block;
-      margin: 0 auto 15px;
+      border: 4px solid #4caf50;
     }
 
-    input, textarea, select, button {
+    input, textarea, button {
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
       font-size: 16px;
     }
 
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
     button {
       background: green;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
     .message {
@@ -60,27 +56,25 @@
       margin-top: 10px;
       background: #d4edda;
       color: #155724;
-      border-radius: 6px;
+      border-radius: 5px;
       text-align: center;
     }
 
     .privacy {
-      font-size: 13px;
-      color: #666;
+      font-size: 14px;
+      color: #555;
       text-align: center;
       margin-top: 10px;
     }
   </style>
 </head>
-
 <body>
 
-<div class="card">
+  <h2>د مرستې فورم</h2>
 
-  <h2>د مرستې لاس</h2>
-  <p>موږ هڅه کوو چې مرستې سم ځای ته ورسوو</p>
-
-  <img src="test.jpg">
+  <div class="image-box">
+    <img src="test.jpg" alt="انځور">
+  </div>
 
   <form
     action="https://formsubmit.co/morosfinisher@gmail.com"
@@ -88,53 +82,42 @@
     onsubmit="showMessage(event, this)"
   >
 
-    <!-- امنیت -->
+    <!-- تنظیمات -->
     <input type="hidden" name="_subject" value="نوی د مرستې پیغام">
-    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_confirmation" value="false">
 
-    <!-- د روبوټ لپاره پټ خانہ -->
-    <input type="text" name="_honey" style="display:none">
-
-    <!-- اصلي معلومات -->
+    <!-- فورم -->
     <input type="text" name="name" placeholder="نوم" required>
     <input type="text" name="village" placeholder="کلی" required>
-
-    <select name="help_type" required>
-      <option value="">د مرستې ډول وټاکئ</option>
-      <option value="خوراک">خوراک</option>
-      <option value="درملنه">درملنه</option>
-      <option value="تعلیم">تعلیم</option>
-      <option value="نور">نور</option>
-    </select>
-
     <textarea name="message" placeholder="د مرستې وضاحت" required></textarea>
 
     <button type="submit">لېږل</button>
   </form>
 
   <div id="msg" class="message">
-    ستا پیغام ترلاسه شو 🌻  
-    که اړتیا وي، موږ به له تا سره اړیکه ونیسو
+    ستا معلومات ثبت شول، مننه 🌻
   </div>
 
   <div class="privacy">
     ستاسو معلومات یوازې د مرستې لپاره کارول کیږي او بل هېڅ ځای ته نه لېږل کیږي
   </div>
 
-</div>
+  <script>
+    function showMessage(e, form) {
+      e.preventDefault();
 
-<script>
-  function showMessage(e, form) {
-    e.preventDefault();
-    const msg = document.getElementById("msg");
-    msg.style.display = "block";
-    form.submit();
-    form.reset();
-    setTimeout(() => {
-      msg.style.display = "none";
-    }, 3000);
-  }
-</script>
+      const msg = document.getElementById("msg");
+      msg.style.display = "block";
+
+      form.submit();
+      form.reset();
+
+      setTimeout(function () {
+        msg.style.display = "none";
+      }, 3000);
+    }
+  </script>
 
 </body>
 </html>
