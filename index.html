@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>د مرستې فورم</title>
 
-  <!-- د بهرني CSS فایل لینک -->
+  <!-- بهرنی CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,20 +22,30 @@
     onsubmit="showMessage(event, this)"
   >
 
+    <!-- تنظیمات -->
     <input type="hidden" name="_subject" value="نوی د مرستې پیغام">
     <input type="hidden" name="_captcha" value="false">
 
-    <input type="text" name="name" placeholder="نوم" required>
-    <input type="text" name="village" placeholder="کلی" required>
-    <textarea name="message" placeholder="د مرستې وضاحت" required></textarea>
+    <!-- داخلېدونکي معلومات -->
+    <input type="text" name="name" placeholder="نوم" required minlength="3">
+    <input type="text" name="village" placeholder="کلی" required minlength="2">
+
+    <textarea
+      name="message"
+      placeholder="د مرستې وضاحت (لږ تر لږه ۱۰ توري)"
+      required
+      minlength="10"
+    ></textarea>
 
     <button type="submit">لېږل</button>
   </form>
 
+  <!-- پیغام -->
   <div id="msg" class="message">
     ستا معلومات ثبت شول، مننه 🌻
   </div>
 
+  <!-- JavaScript -->
   <script>
     function showMessage(e, form) {
       e.preventDefault();
