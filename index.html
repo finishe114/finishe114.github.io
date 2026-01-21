@@ -12,6 +12,16 @@
       background: #f5f5f5;
     }
 
+    .lang {
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    .lang button {
+      padding: 5px 10px;
+      margin-left: 5px;
+    }
+
     h2 {
       text-align: center;
     }
@@ -40,11 +50,6 @@
       cursor: pointer;
     }
 
-    button:disabled {
-      background: gray;
-      cursor: not-allowed;
-    }
-
     .message {
       display: none;
       padding: 12px;
@@ -58,20 +63,25 @@
 </head>
 <body>
 
-  <h2>د مرستې فورم</h2>
+  <div class="lang">
+    <button onclick="setLang('ps')">پښتو</button>
+    <button onclick="setLang('en')">English</button>
+  </div>
 
-  <img src="test.jpg" alt="عکس">
+  <h2 id="title">د مرستې فورم</h2>
+
+  <img src="test.jpg" alt="Image">
 
   <form action="https://formsubmit.co/morosfinisher@gmail.com" method="POST">
-    <input type="hidden" name="_subject" value="نوی د مرستې پیغام">
+    <input type="hidden" name="_subject" value="Help Request">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_next" value="https://finishe114.github.io/">
 
-    <input type="text" name="name" placeholder="نوم" required>
-    <input type="text" name="village" placeholder="کلی" required>
-    <textarea name="message" placeholder="د مرستې وضاحت" required></textarea>
+    <input id="name" type="text" name="name" placeholder="نوم" required>
+    <input id="village" type="text" name="village" placeholder="کلی" required>
+    <textarea id="message" name="message" placeholder="د مرستې وضاحت" required></textarea>
 
-    <button type="submit" id="sendBtn">لېږل</button>
+    <button id="sendBtn" type="submit">لېږل</button>
   </form>
 
   <div id="msg" class="message">
@@ -79,19 +89,25 @@
   </div>
 
   <script>
-    const form = document.querySelector("form");
-    const btn = document.getElementById("sendBtn");
-    const msg = document.getElementById("msg");
-
-    form.addEventListener("submit", function () {
-      btn.disabled = true;
-      btn.innerText = "لېږل شول";
-      msg.style.display = "block";
-
-      setTimeout(function () {
-        msg.style.display = "none";
-      }, 3000);
-    });
+    function setLang(lang) {
+      if (lang === "en") {
+        document.documentElement.lang = "en";
+        document.getElementById("title").innerText = "Help Request Form";
+        document.getElementById("name").placeholder = "Name";
+        document.getElementById("village").placeholder = "City / Village";
+        document.getElementById("message").placeholder = "Describe your request";
+        document.getElementById("sendBtn").innerText = "Send";
+        document.getElementById("msg").innerText = "Your message has been sent. Thank you.";
+      } else {
+        document.documentElement.lang = "ps";
+        document.getElementById("title").innerText = "د مرستې فورم";
+        document.getElementById("name").placeholder = "نوم";
+        document.getElementById("village").placeholder = "کلی";
+        document.getElementById("message").placeholder = "د مرستې وضاحت";
+        document.getElementById("sendBtn").innerText = "لېږل";
+        document.getElementById("msg").innerText = "ستا معلومات ثبت شول، مننه 🌻";
+      }
+    }
   </script>
 
 </body>
