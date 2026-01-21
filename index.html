@@ -17,11 +17,12 @@
     }
 
     img {
-      width: 100%;
-      max-width: 400px;
+      width: 250px;
+      height: 250px;
       display: block;
       margin: 0 auto 15px auto;
-      border-radius: 12px;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     input, textarea, button {
@@ -37,11 +38,6 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-    }
-
-    button:disabled {
-      background: gray;
-      cursor: not-allowed;
     }
 
     .message {
@@ -61,11 +57,7 @@
 
   <img src="test.jpg" alt="عکس">
 
-  <form
-    action="https://formsubmit.co/morosfinisher@gmail.com"
-    method="POST"
-    onsubmit="handleSubmit(event)"
-  >
+  <form action="https://formsubmit.co/morosfinisher@gmail.com" method="POST">
     <input type="hidden" name="_subject" value="نوی د مرستې پیغام">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_next" value="https://finishe114.github.io/">
@@ -74,28 +66,12 @@
     <input type="text" name="village" placeholder="کلی" required>
     <textarea name="message" placeholder="د مرستې وضاحت" required></textarea>
 
-    <button id="sendBtn" type="submit">لېږل</button>
+    <button type="submit">لېږل</button>
   </form>
 
   <div id="msg" class="message">
     ستا معلومات ثبت شول، مننه 🌻
   </div>
-
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-
-      const msg = document.getElementById("msg");
-      const btn = document.getElementById("sendBtn");
-
-      msg.style.display = "block";
-      btn.disabled = true;
-      btn.innerText = "لېږل شول";
-
-      e.target.submit();
-      e.target.reset();
-    }
-  </script>
 
 </body>
 </html>
