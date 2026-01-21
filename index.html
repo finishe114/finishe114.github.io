@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>د عدم تشدد لارویان | Nonviolence Supporters | عدم تشدد کے حامی</title>
+  <title>د عدم تشدود لارویان</title>
 
   <style>
     body {
@@ -14,6 +14,28 @@
 
     h2 {
       text-align: center;
+    }
+
+    .lang-buttons {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .lang-buttons button {
+      margin: 3px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      background: #444;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .intro {
+      text-align: center;
+      font-size: 15px;
+      margin-bottom: 15px;
+      color: #333;
     }
 
     .image-box {
@@ -30,7 +52,7 @@
       border: 4px solid #4caf50;
     }
 
-    input, textarea, button {
+    input, textarea, button[type="submit"] {
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
@@ -42,7 +64,7 @@
       min-height: 80px;
     }
 
-    button {
+    button[type="submit"] {
       background: green;
       color: white;
       border: none;
@@ -68,18 +90,24 @@
     }
   </style>
 </head>
+
 <body>
 
-  <h2>
-    د عدم تشدد لارویان  
-    <br>
-    Nonviolence Supporters  
-    <br>
-    عدم تشدد کے حامی
-  </h2>
+  <!-- ژبې -->
+  <div class="lang-buttons">
+    <button onclick="setLang('ps')">پښتو</button>
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('ur')">اردو</button>
+  </div>
+
+  <h2>د عدم تشدود لارویان</h2>
+
+  <p id="intro" class="intro">
+    دا پاڼه د عدم تشدود د نظریاتو د شریکولو لپاره ده
+  </p>
 
   <div class="image-box">
-    <img src="test.jpg" alt="Nonviolence Symbol">
+    <img src="test.jpg" alt="انځور">
   </div>
 
   <form
@@ -89,61 +117,48 @@
   >
 
     <!-- تنظیمات -->
-    <input type="hidden" name="_subject" value="Nonviolence Opinion Submission">
+    <input type="hidden" name="_subject" value="نوی د عدم تشدود پیغام">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_confirmation" value="false">
 
-    <!-- فورم -->
-    <input
-      type="text"
-      name="region"
-      placeholder="منطقه (لکه: وزیرستان) | Region (e.g. Waziristan) | علاقہ"
-      required
-    >
+    <!-- فورم (یوازې پښتو) -->
+    <input type="text" name="name" placeholder="نوم" required>
+    <input type="text" name="region" placeholder="سیمه (لکه: وزیرستان، بنو)" required>
+    <textarea name="message" placeholder="د عدم تشدود په اړه خپل لنډ نظر ولیکئ" required></textarea>
 
-    <input
-      type="text"
-      name="side"
-      placeholder="لر یا بر پښتونخوا | Pashtunkhwa (Upper/Lower) | خیبرپختونخوا"
-      required
-    >
-
-    <textarea
-      name="thought"
-      placeholder="د عدم تشدد په اړه خپل لنډ نظر | Your short view on nonviolence | عدم تشدد پر آپ کی مختصر رائے"
-      required
-    ></textarea>
-
-    <button type="submit">
-      لېږل | Submit | جمع کریں
-    </button>
+    <button type="submit">لېږل</button>
   </form>
 
   <div id="msg" class="message">
-    ستا نظر ثبت شو – Thank you – شکریہ 🌿
+    ستا معلومات ثبت شول، مننه 🌻
   </div>
 
   <div class="privacy">
-    دا فورم شخصي معلومات نه راټولوي.  
-    <br>
-    No personal data is collected.  
-    <br>
-    کوئی ذاتی معلومات محفوظ نہیں کیے جاتے۔
+    ستاسو معلومات یوازې د فکري شریکولو لپاره کارول کیږي او بل هېڅ ځای ته نه لېږل کیږي
   </div>
 
   <script>
     function showMessage(e, form) {
       e.preventDefault();
-
       const msg = document.getElementById("msg");
       msg.style.display = "block";
-
       form.submit();
       form.reset();
+      setTimeout(() => msg.style.display = "none", 3000);
+    }
 
-      setTimeout(function () {
-        msg.style.display = "none";
-      }, 3000);
+    function setLang(lang) {
+      const intro = document.getElementById("intro");
+
+      if (lang === "ps") {
+        intro.innerText = "دا پاڼه د عدم تشدود د نظریاتو د شریکولو لپاره ده";
+      }
+      if (lang === "en") {
+        intro.innerText = "This platform is for sharing ideas about nonviolence.";
+      }
+      if (lang === "ur") {
+        intro.innerText = "یہ پلیٹ فارم عدم تشدد کے خیالات کے تبادلے کے لیے ہے۔";
+      }
     }
   </script>
 
