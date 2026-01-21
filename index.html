@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>د مرستې فورم</title>
 
-  <!-- بهرنی CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,20 +15,37 @@
 
   <img src="test.jpg" alt="عکس">
 
-  <!-- FormSubmit -->
+  <!-- Form -->
   <form
     action="https://formsubmit.co/morosfinisher@gmail.com"
     method="POST"
     onsubmit="showMessage(event, this)"
   >
 
-    <!-- تنظیمات -->
+    <!-- Settings -->
     <input type="hidden" name="_subject" value="نوی د مرستې پیغام">
     <input type="hidden" name="_captcha" value="false">
 
-    <!-- داخلېدونکي معلومات -->
-    <input type="text" name="name" placeholder="نوم" required minlength="3">
-    <input type="text" name="village" placeholder="کلی" required minlength="2">
+    <!-- Inputs -->
+    <input
+      type="text"
+      name="name"
+      placeholder="نوم"
+      required
+      minlength="3"
+      oninvalid="this.setCustomValidity('مهرباني وکړه نوم لږ تر لږه ۳ توري وي')"
+      oninput="this.setCustomValidity('')"
+    >
+
+    <input
+      type="text"
+      name="village"
+      placeholder="کلی"
+      required
+      minlength="2"
+      oninvalid="this.setCustomValidity('مهرباني وکړه د کلي نوم ولیکه')"
+      oninput="this.setCustomValidity('')"
+    >
 
     <textarea
       name="message"
@@ -36,13 +53,13 @@
       required
       minlength="10"
       oninvalid="this.setCustomValidity('مهرباني وکړه لږ تر لږه ۱۰ توري ولیکه')"
-oninput="this.setCustomValidity('')"
+      oninput="this.setCustomValidity('')"
     ></textarea>
 
     <button type="submit">لېږل</button>
   </form>
 
-  <!-- پیغام -->
+  <!-- Message -->
   <div id="msg" class="message">
     ستا معلومات ثبت شول، مننه 🌻
   </div>
