@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>د عدم تشدود لارویان </title>
+  <title>د عدم تشدد لارویان | Nonviolence Supporters | عدم تشدد کے حامی</title>
 
   <style>
     body {
@@ -70,10 +70,16 @@
 </head>
 <body>
 
-  <h2>د عدم تشدود لارویان </h2>
+  <h2>
+    د عدم تشدد لارویان  
+    <br>
+    Nonviolence Supporters  
+    <br>
+    عدم تشدد کے حامی
+  </h2>
 
   <div class="image-box">
-    <img src="test.jpg" alt="انځور">
+    <img src="test.jpg" alt="Nonviolence Symbol">
   </div>
 
   <form
@@ -83,24 +89,46 @@
   >
 
     <!-- تنظیمات -->
-    <input type="hidden" name="_subject" value="نوی د مرستې پیغام">
+    <input type="hidden" name="_subject" value="Nonviolence Opinion Submission">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_confirmation" value="false">
 
     <!-- فورم -->
-    <input type="text" name="name" placeholder="نوم" required>
-    <input type="text" name="village" placeholder="کلی" required>
-    <textarea name="message" placeholder="د مرستې وضاحت" required></textarea>
+    <input
+      type="text"
+      name="region"
+      placeholder="منطقه (لکه: وزیرستان) | Region (e.g. Waziristan) | علاقہ"
+      required
+    >
 
-    <button type="submit">لېږل</button>
+    <input
+      type="text"
+      name="side"
+      placeholder="لر یا بر پښتونخوا | Pashtunkhwa (Upper/Lower) | خیبرپختونخوا"
+      required
+    >
+
+    <textarea
+      name="thought"
+      placeholder="د عدم تشدد په اړه خپل لنډ نظر | Your short view on nonviolence | عدم تشدد پر آپ کی مختصر رائے"
+      required
+    ></textarea>
+
+    <button type="submit">
+      لېږل | Submit | جمع کریں
+    </button>
   </form>
 
   <div id="msg" class="message">
-    ستا معلومات ثبت شول، مننه 🌻
+    ستا نظر ثبت شو – Thank you – شکریہ 🌿
   </div>
 
   <div class="privacy">
-    ستاسو معلومات یوازې د مرستې لپاره کارول کیږي او بل هېڅ ځای ته نه لېږل کیږي
+    دا فورم شخصي معلومات نه راټولوي.  
+    <br>
+    No personal data is collected.  
+    <br>
+    کوئی ذاتی معلومات محفوظ نہیں کیے جاتے۔
   </div>
 
   <script>
