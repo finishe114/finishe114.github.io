@@ -26,6 +26,15 @@
       text-align: center;
     }
 
+    .info {
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
     img {
       width: 250px;
       height: 250px;
@@ -50,6 +59,11 @@
       cursor: pointer;
     }
 
+    button:disabled {
+      background: gray;
+      cursor: not-allowed;
+    }
+
     .message {
       display: none;
       padding: 12px;
@@ -70,6 +84,12 @@
 
   <h2 id="title">د مرستې فورم</h2>
 
+  <div id="info" class="info">
+    دا فورم د هغو کسانو لپاره دی چې مرستې ته اړتیا لري.  
+    مهرباني وکړئ خپل معلومات په رښتینولي سره ولیکئ.  
+    ستاسو معلومات یوازې د مرستې لپاره کارول کېږي او بل هېڅ ځای ته نه لېږل کېږي.
+  </div>
+
   <img src="test.jpg" alt="Image">
 
   <form action="https://formsubmit.co/morosfinisher@gmail.com" method="POST">
@@ -89,10 +109,26 @@
   </div>
 
   <script>
+    const form = document.querySelector("form");
+    const btn = document.getElementById("sendBtn");
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", function () {
+      btn.disabled = true;
+      btn.innerText = "لېږل شول";
+      msg.style.display = "block";
+
+      setTimeout(function () {
+        msg.style.display = "none";
+      }, 3000);
+    });
+
     function setLang(lang) {
       if (lang === "en") {
         document.documentElement.lang = "en";
         document.getElementById("title").innerText = "Help Request Form";
+        document.getElementById("info").innerText =
+          "This form is for people who need help. Please provide accurate information. Your data will only be used for assistance purposes and will not be shared.";
         document.getElementById("name").placeholder = "Name";
         document.getElementById("village").placeholder = "City / Village";
         document.getElementById("message").placeholder = "Describe your request";
@@ -101,6 +137,8 @@
       } else {
         document.documentElement.lang = "ps";
         document.getElementById("title").innerText = "د مرستې فورم";
+        document.getElementById("info").innerText =
+          "دا فورم د هغو کسانو لپاره دی چې مرستې ته اړتیا لري. مهرباني وکړئ خپل معلومات په رښتینولي سره ولیکئ. ستاسو معلومات یوازې د مرستې لپاره کارول کېږي او بل هېڅ ځای ته نه لېږل کېږي.";
         document.getElementById("name").placeholder = "نوم";
         document.getElementById("village").placeholder = "کلی";
         document.getElementById("message").placeholder = "د مرستې وضاحت";
