@@ -66,9 +66,9 @@
     method="POST"
     onsubmit="handleSubmit(event)"
   >
-
     <input type="hidden" name="_subject" value="نوی د مرستې پیغام">
     <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://finishe114.github.io/">
 
     <input type="text" name="name" placeholder="نوم" required>
     <input type="text" name="village" placeholder="کلی" required>
@@ -92,8 +92,8 @@
       btn.disabled = true;
       btn.innerText = "لېږل شول";
 
-      e.target.submit();   // ایمېل ته لېږل
-      e.target.reset();    // فورم پاکول
+      e.target.submit();
+      e.target.reset();
     }
   </script>
 
