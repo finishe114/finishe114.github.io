@@ -9,11 +9,23 @@
     body {
       font-family: sans-serif;
       padding: 15px;
-      background: #f5f5f5;
+      background: linear-gradient(135deg, #e8f5f2, #f0f9f7);
+    }
+
+    .container {
+      max-width: 420px;
+      margin: auto;
+      background: #ffffff;
+      padding: 18px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border: 2px solid #b7e0d6;
     }
 
     h2 {
       text-align: center;
+      color: #1b5e50;
+      margin-bottom: 8px;
     }
 
     .lang-buttons {
@@ -23,19 +35,20 @@
 
     .lang-buttons button {
       margin: 3px;
-      padding: 6px 12px;
-      border: none;
-      border-radius: 5px;
-      background: #444;
-      color: #fff;
+      padding: 6px 14px;
+      border: 1px solid #2e7d6f;
+      border-radius: 20px;
+      background: #e0f2ef;
+      color: #1b5e50;
       cursor: pointer;
+      font-size: 14px;
     }
 
     .intro {
       text-align: center;
       font-size: 15px;
       margin-bottom: 15px;
-      color: #333;
+      color: #2f4f4f;
     }
 
     .image-box {
@@ -49,92 +62,108 @@
       height: 180px;
       object-fit: cover;
       border-radius: 50%;
-      border: 4px solid #4caf50;
+      border: 6px double #4db6ac;
+      background: #ffffff;
     }
 
-    input, textarea, button[type="submit"] {
+    input, textarea {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      font-size: 16px;
+      padding: 11px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      border-radius: 10px;
+      border: 2px double #80cbc4;
+      background: #f7fffd;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #26a69a;
+      background: #ffffff;
     }
 
     textarea {
       resize: vertical;
-      min-height: 80px;
+      min-height: 90px;
     }
 
     button[type="submit"] {
-      background: green;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #26a69a, #2bbbad);
       color: white;
+      font-size: 16px;
       border: none;
-      border-radius: 5px;
+      border-radius: 25px;
       cursor: pointer;
     }
 
     .message {
       display: none;
       padding: 12px;
-      margin-top: 10px;
-      background: #d4edda;
-      color: #155724;
-      border-radius: 5px;
+      margin-top: 12px;
+      background: #e6f7f3;
+      color: #1b5e50;
+      border-radius: 10px;
       text-align: center;
+      border: 1px solid #a7ded4;
     }
 
     .privacy {
-      font-size: 14px;
-      color: #555;
+      font-size: 13px;
+      color: #4f6f6a;
       text-align: center;
-      margin-top: 10px;
+      margin-top: 12px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ژبې -->
-  <div class="lang-buttons">
-    <button onclick="setLang('ps')">پښتو</button>
-    <button onclick="setLang('en')">English</button>
-    <button onclick="setLang('ur')">اردو</button>
-  </div>
+  <div class="container">
 
-  <h2>د عدم تشدود لارویان</h2>
+    <!-- ژبې -->
+    <div class="lang-buttons">
+      <button onclick="setLang('ps')">پښتو</button>
+      <button onclick="setLang('en')">English</button>
+      <button onclick="setLang('ur')">اردو</button>
+    </div>
 
-  <p id="intro" class="intro">
-    دا پاڼه د عدم تشدود د نظریاتو د شریکولو لپاره ده
-  </p>
+    <h2>د عدم تشدود لارویان</h2>
 
-  <div class="image-box">
-    <img src="test.jpg" alt="انځور">
-  </div>
+    <p id="intro" class="intro">
+      دا پاڼه د عدم تشدود د نظریاتو د شریکولو لپاره ده
+    </p>
 
-  <form
-    action="https://formsubmit.co/morosfinisher@gmail.com"
-    method="POST"
-    onsubmit="showMessage(event, this)"
-  >
+    <div class="image-box">
+      <img src="test.jpg" alt="انځور">
+    </div>
 
-    <!-- تنظیمات -->
-    <input type="hidden" name="_subject" value="نوی د عدم تشدود پیغام">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_confirmation" value="false">
+    <form
+      action="https://formsubmit.co/morosfinisher@gmail.com"
+      method="POST"
+      onsubmit="showMessage(event, this)"
+    >
 
-    <!-- فورم (یوازې پښتو) -->
-    <input type="text" name="name" placeholder="نوم" required>
-    <input type="text" name="region" placeholder="سیمه (لکه: وزیرستان، بنو)" required>
-    <textarea name="message" placeholder="د عدم تشدود په اړه خپل لنډ نظر ولیکئ" required></textarea>
+      <input type="hidden" name="_subject" value="نوی د عدم تشدود پیغام">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_confirmation" value="false">
 
-    <button type="submit">لېږل</button>
-  </form>
+      <input type="text" name="name" placeholder="نوم" required>
+      <input type="text" name="region" placeholder="سیمه (لکه: وزیرستان، بنو)" required>
+      <textarea name="message" placeholder="د عدم تشدود په اړه خپل لنډ نظر ولیکئ" required></textarea>
 
-  <div id="msg" class="message">
-    ستا معلومات ثبت شول، مننه 🌻
-  </div>
+      <button type="submit">لېږل</button>
+    </form>
 
-  <div class="privacy">
-    ستاسو معلومات یوازې د فکري شریکولو لپاره کارول کیږي او بل هېڅ ځای ته نه لېږل کیږي
+    <div id="msg" class="message">
+      ستا معلومات ثبت شول، مننه 🌻
+    </div>
+
+    <div class="privacy">
+      ستاسو معلومات یوازې د فکري شریکولو لپاره کارول کیږي او بل هېڅ ځای ته نه لېږل کیږي
+    </div>
+
   </div>
 
   <script>
@@ -149,7 +178,6 @@
 
     function setLang(lang) {
       const intro = document.getElementById("intro");
-
       if (lang === "ps") {
         intro.innerText = "دا پاڼه د عدم تشدود د نظریاتو د شریکولو لپاره ده";
       }
