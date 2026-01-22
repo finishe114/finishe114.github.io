@@ -54,7 +54,7 @@
     .image-box {
       display: flex;
       justify-content: center;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .image-box img {
@@ -64,6 +64,13 @@
       border-radius: 50%;
       border: 6px double #4db6ac;
       background: #ffffff;
+    }
+
+    .art-note {
+      text-align: center;
+      font-size: 14px;
+      color: #7a9c96;
+      margin-bottom: 14px;
     }
 
     input, textarea {
@@ -122,7 +129,6 @@
 
   <div class="container">
 
-    <!-- ژبې -->
     <div class="lang-buttons">
       <button onclick="setLang('ps')">پښتو</button>
       <button onclick="setLang('en')">English</button>
@@ -132,11 +138,15 @@
     <h2>د عدم تشدود لارویان</h2>
 
     <p id="intro" class="intro">
-      دا پاڼه د عدم تشدود د نظریاتو د شریکولو لپاره ده
+      دا مبارزه د عدم تشدود د راوجولو لپاره ده
     </p>
 
     <div class="image-box">
       <img src="test.jpg" alt="انځور">
+    </div>
+
+    <div class="art-note">
+      مهرباني وکړئ د هنر له لارې دننه شئ
     </div>
 
     <form
@@ -179,13 +189,13 @@
     function setLang(lang) {
       const intro = document.getElementById("intro");
       if (lang === "ps") {
-        intro.innerText = "دا پاڼه د عدم تشدود د نظریاتو د شریکولو لپاره ده";
+        intro.innerText = "دا مبارزه د عدم تشدود د راوجولو لپاره ده";
       }
       if (lang === "en") {
-        intro.innerText = "This platform is for sharing ideas about nonviolence.";
+        intro.innerText = "This struggle is for the promotion of nonviolence.";
       }
       if (lang === "ur") {
-        intro.innerText = "یہ پلیٹ فارم عدم تشدد کے خیالات کے تبادلے کے لیے ہے۔";
+        intro.innerText = "یہ جدوجہد عدم تشدد کے فروغ کے لیے ہے۔";
       }
     }
   </script>
